@@ -58,6 +58,10 @@ class TwitterUser:
         else:
             return self.tweet_out(shorten_tweet_text(tweet_text))
 
+    def search_query(self, query="") -> dict:
+        search_results = self.authenticated_user.search_recent_tweets(query, sort_order="relevancy", max_results=20)
+        return search_results
+
     def read_rss_and_tweet(self, url: str):
         # read rss feed and return details to tweet out
         feed = fp.parse(url)
