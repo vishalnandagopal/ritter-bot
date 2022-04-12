@@ -2,9 +2,10 @@
 /pip_test
 /_python_build
 *.vscode/
-feed.txt
+feed.json
 tweet-details.txt
 tweet-ids.txt
+*.env
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
