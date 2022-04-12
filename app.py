@@ -15,6 +15,15 @@ ATS = getenv("Access_Token_Secret")
 
 list_of_rss_feeds = []
 
+def feed_to_json(url: str):
+    # converts feedparser output to a json file for better readability
+    from json import dumps
+    feed = fp.parse(url)
+    to_dump = dumps(feed, indent=1, sort_keys=True)
+    f = open("feed.json", "a")
+    f.write(to_dump)
+    f.close()
+
 def dict_for_tweets(tweet_details: list) -> dict:
     # creates a dictionary of details containing text, readable time and epoch time
     sub_dict_for_tweet = {}
