@@ -13,7 +13,12 @@ AKS = getenv("API_KEY_SECRET")
 AT = getenv("Access_Token")
 ATS = getenv("Access_Token_Secret")
 
-list_of_rss_feeds = []
+list_of_rss_feeds = [
+    "https://feeds.feedburner.com/TheHackersNews",
+    "https://www.secureworks.com/rss?feed=research&category=threat-analysis",
+    "https://krebsonsecurity.com/feed/",
+    "https://www.darkreading.com/rss.xml"
+    ]
 
 def feed_to_json(url: str):
     # converts feedparser output to a json file for better readability
@@ -65,7 +70,7 @@ class TwitterUser:
     def delete_tweets(self, tweet_id):
         self.authenticated_user.delete_tweet(tweet_id)
         return tweet_id
-    
+
     def read_rss_and_tweet(self, url: str):
         # read rss feed and return details to tweet out
         feed = fp.parse(url)
