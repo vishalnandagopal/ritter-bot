@@ -1,4 +1,4 @@
-# Ritterbot - RSS Feed to Twitter Bot
+# RSS Feed to Twitter Bot
 
 A simple Python application that pulls data from RSS feeds, parses them and then tweets out the latest articles (their titles, and the source and a link to them).
 
