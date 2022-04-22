@@ -18,6 +18,7 @@ list_of_rss_feeds = [
     "https://www.secureworks.com/rss?feed=research&category=threat-analysis",
     "https://krebsonsecurity.com/feed/",
     "https://www.darkreading.com/rss.xml"
+  # "https://lobste.rs/about" - filter this rss feed by security tag
     ]
 
 def feed_to_json(url: str):
