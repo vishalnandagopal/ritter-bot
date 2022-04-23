@@ -5,6 +5,7 @@
 feed.json
 tweet-details.txt
 tweet-ids.txt
+testing.py
 *.env
 
 # Byte-compiled / optimized / DLL files
