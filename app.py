@@ -1,8 +1,8 @@
+from tweepy import Client
+import feedparser as fp
 from time import ctime
 from os import getenv
-from tweepy import Client
 from dotenv import load_dotenv
-import feedparser as fp
 
 load_dotenv(r"owasp-tweet-bot.env")
 
