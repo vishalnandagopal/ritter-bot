@@ -4,7 +4,7 @@ from time import ctime
 from os import getenv
 from dotenv import load_dotenv
 
-load_dotenv(r"owasp-tweet-bot.env")
+load_dotenv(r"ritter-bot.env")
 
 # get the necessary tokens from .env file
 BT = getenv("Bearer_Token")
