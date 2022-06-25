@@ -109,8 +109,12 @@ The available options are:
 
 - `rss_feeds_to_fetch`: Dictionary/JSON with feeds to fetch. Feeds are to be put in `description_from_rss_feed` or `description_from_html`. This decides where their description is fetched (For feeds under`description_from_html`, the description is fetched by fetching the html and getting the data from the `<meta>` tags).
     
-    Values: ```{"description_from_rss_feed": ["https://exaample.com/feed1"],
-        "description_from_html": ["https://exaample.com/feed2","https://exaample.com/feed3"]}```
+    Values: ```{"description_from_rss_feed": ["https://exaample.com/feed1"], "description_from_html": ["https://exaample.com/feed2","https://exaample.com/feed3"]}```
+
+- `dont_summarize_these_urls`: List of domains for which the summary should not be generated because it is buggy. Example: Content in GitHub READMEs mess the summary up by popping up randomly.
+    
+    Values: ["github.com","reddit.com","youtube.com"]
+
 
 - `reset_config_to_default`: When `true`, the settings in `config.json` are deleted and replaced with whatever is present in the `default-config.json` file.
 

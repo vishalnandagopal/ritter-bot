@@ -21,7 +21,8 @@
     },
     "dont_summarize_these_urls": [
         "github.com",
-        "reddit.com"
+        "reddit.com",
+        "youtube.com"
     ],
     "reset_config_to_default": false
 }
