@@ -6,7 +6,7 @@ A Python application that pulls data from RSS feeds, parses it and then tweets o
 
 ### API Keys
 
-Create a file name `ritter-bot.env` in the root directory. Put your [Twitter API keys](https://developer.twitter.com/en/portal/dashboard) in it. 
+Create a file name `ritter-bot.env` in the root directory. Put your [Twitter API keys](https://developer.twitter.com/en/portal/dashboard) in it.
 
 You need to put the following keys in the `ritter-bot.env` file (preferably in the same format):
 
@@ -17,8 +17,31 @@ API_Key_Secret=
 Access_Token=
 Access_Token_Secret=
 ```
+
+**Your API keys must have "Elevated access"**. If you only have "Essential access", click [here](https://developer.twitter.com/en/portal/products/elevated).
+
+<details>
+
+<summary>
+If you are facing problems with the API, or need a more thorough explanation, click here.
+</summary>
+
+1. You need to create a project on your [Twitter Developer Dashboard](https://developer.twitter.com/en/portal/dashboard). Next, create an app under the project, by filling in all the details Twitter has asked for.
+
+2. You need to apply for "Elevated access", since this is neccessary for making tweets using the Twitter API. Only "Essential Access" is granted by default. You can apply [here](https://developer.twitter.com/en/portal/products/elevated). It might take 2 days to get approved.
+
+3. Make sure your Access Token and Secret have "Read and Write" permissions. Only "Read" permission is granted by default when you create an Access Token.
+    1. First, under "User authentication settings" in the app settings on the dashboard, make sure OAuth 1.0a and OAuth 2.0 are turned on.
+    
+    2. Check if OAuth 1.0 has "Read and Write permissions". If not, enable it and then regenerate the Authentication Tokens (access tokens and bearer token).
+
+    3. "Created with Read and Write permissions" should be displayed under the "Access Token and Secret" section in the "Keys and Tokens" section of your app.
+
+4. If you're still facing issues, regenerate *all* tokens and then run the program again.
+
 ##### If you do not want to use .env files, you can hardcode your keys into the program by changing the values in [app.py](app.py#L458)
 
+</details>
 
 ### Configuration of features
 Change the options available in [config.json](config.json) to your liking. Make sure it is a valid JSON file after you finish editing it.
