@@ -542,7 +542,7 @@ class TwitterUser:
     
     def tweet_feed(self, feed, description_from_html:bool = False):
 
-        if not variables.testing_mode:
+        if variables.testing_mode:
             if len(feed['entries']) > 2:
                 urls_to_tweet = 2
             else:
