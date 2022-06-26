@@ -422,12 +422,12 @@ def what_to_tweet(entry:dict, description_from_html:bool) -> tuple[str,list,str]
 
 
 def shorten_tweet_text(text: str) -> str:
-    # Shortens the text to 276 characters and appends "..." at the end. (Twitter"s character limit is 280)
+    # Shortens the text to 276 characters and appends "..." at the end. (Twitter's character limit is 280)
     return text[0:276] + "..."
 
 
 def log_to_file(ids: list, url: str, type_of_tweet: str, tweet_text):
-    # takes care of log_to_jsonging the details of the tweet to text files for future use
+    # takes care of logging the details of the tweet to text files for future use
     
     #removes the 1st 0 from the list of tweet_ids
     ids.pop(0)
