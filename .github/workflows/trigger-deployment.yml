@@ -1,0 +1,32 @@
+name: ritter-bot-trigger-deployment
+on:
+    schedule:
+        - cron: "*/5 * * * *"
+    push:
+      branches:
+        - main
+        - testing
+jobs:
+    commit:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout
+            # Checkout the branch
+              uses: actions/checkout@v3
+            - name: save current date
+              run: |
+                  # do some operation that changes a file in the git repo
+                  date > time.txt
+
+            - name: setup git config
+              run: |
+                  # setup the username and email
+                  git config user.name github-actions
+                  git config user.email github-actions@github.com
+
+            - name: commit
+              run: |
+                  # Stage the file, commit and push
+                  git add time.txt
+                  git commit -m "new date commit to trigger deployment"
+                  git push origin deployment
