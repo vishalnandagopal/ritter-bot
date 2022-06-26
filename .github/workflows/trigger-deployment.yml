@@ -4,7 +4,7 @@ on:
         - cron: "*/30 * * * *"
     push:
       branches:
-        - main
+        - master
 jobs:
     commit:
         runs-on: ubuntu-latest
