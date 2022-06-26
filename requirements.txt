@@ -1,5 +1,4 @@
 feedparser==6.0.10
-newspaper==0.1.0.7
 newspaper3k==0.2.8
 nltk==3.7
 python-dotenv==0.20.0
