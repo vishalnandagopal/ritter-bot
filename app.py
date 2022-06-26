@@ -3,7 +3,6 @@ import feedparser
 import time
 import os
 import json
-from dotenv import load_dotenv
 
 # Functions defined from the next line up to the TwitterUser class are generic and not specific to Twitter. They're made for the project but can be used anywhere else.
 
@@ -466,10 +465,13 @@ def feed_to_json(url: str):
 
 
 def get_api_keys() -> tuple[str,str,str,str,str]:
+    from dotenv import load_dotenv
     try:
-        load_dotenv(r'ritter-bot.env')
         # get the necessary tokens from .env file. To hardcode the API keys, substitute the os.getenv('') with a string of the API keys.
-
+        if check_if_exists_in_directory("ritter-bot.env"):
+            load_dotenv(r'ritter-bot.env')
+        else:
+            load_dotenv()
         bearer_token = os.getenv('Bearer_Token')
         api_key = os.getenv('API_Key')
         api_key_secret = os.getenv('API_KEY_SECRET')
