@@ -345,8 +345,9 @@ def summarize_article(url: str) -> tuple[str]:
 
 
 def split_into_sentences(summarized_text: str) -> list:
-    from nltk import tokenize
-    single_sentences = tokenize.sent_tokenize(summarized_text)
+    import nltk
+    nltk.download()
+    single_sentences = nltk.tokenize.sent_tokenize(summarized_text)
     already_added,sentences_to_tweet = [],[]
     for i in range(len(single_sentences)):
         if (i not in already_added):
