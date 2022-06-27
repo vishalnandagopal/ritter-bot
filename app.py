@@ -474,7 +474,7 @@ def get_api_keys() -> tuple[str,str,str,str,str]:
             load_dotenv()
         bearer_token = os.getenv('Bearer_Token')
         api_key = os.getenv('API_Key')
-        api_key_secret = os.getenv('API_KEY_SECRET')
+        api_key_secret = os.getenv('API_Key_Secret')
         access_token = os.getenv('Access_Token')
         access_token_secret = os.getenv('Access_Token_Secret')
         
