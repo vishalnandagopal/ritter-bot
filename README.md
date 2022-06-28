@@ -6,9 +6,9 @@ A Python application that pulls data from RSS feeds, parses it and then tweets o
 
 ### API Keys
 
-Create a file name `ritter-bot.env` in the root directory. Put your [Twitter API keys](https://developer.twitter.com/en/portal/dashboard) in it.
+Get the API keys for your Twitter account from the [Twitter Developer Dashboard](https://developer.twitter.com/en/portal/dashboard).
 
-You need to put the following keys in the `ritter-bot.env` file (preferably in the same format):
+If you want to store the keys in a `.env` file, Create a file name `ritter-bot.env` in the root directory. Put your keys in the same file (preferably in the same format):
 
 ```
 Bearer_Token=
@@ -17,6 +17,9 @@ API_Key_Secret=
 Access_Token=
 Access_Token_Secret=
 ```
+
+If you are using a hosting provider that supports setting environmental variables globally to your project (like [Heroku](https://www.heroku.com)), add the five keys mentioned above as variables in your hosting provider's project/app settings.
+
 
 **Your API keys must have "Elevated access"**. If you only have "Essential access", click [here](https://developer.twitter.com/en/portal/products/elevated).
 

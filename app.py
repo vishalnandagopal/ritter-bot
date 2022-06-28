@@ -338,7 +338,12 @@ def summarize_article(url: str) -> tuple[str]:
     article = Article(url)
     article.download()
     article.parse()
-    article.nlp()
+    try:
+        article.nlp()
+    except LookupError:
+        import nltk
+        nltk.download("punkt",quiet=True)
+        article.nlp()
     summarized_text = article.summary
     return summarized_text
 
@@ -471,6 +476,7 @@ def get_api_keys() -> tuple[str,str,str,str,str]:
         if check_if_exists_in_directory("ritter-bot.env"):
             load_dotenv(r'ritter-bot.env')
         else:
+            # loads the env keys when using hosting sites such as heroku, etc
             load_dotenv()
         bearer_token = os.getenv('Bearer_Token')
         api_key = os.getenv('API_Key')
