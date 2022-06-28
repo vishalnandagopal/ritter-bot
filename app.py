@@ -329,22 +329,30 @@ def get_url_description_from_html(url:str) -> str:
             print("Connected to the internet but some other exception exception")
 
 
-def summarize_article(url: str) -> tuple[str]:
+def summarize_article(url: str) -> str:
     # Uses the newspaper module to generate a summary of the article. Fetches the article, parses it and then summarises it with the help of nltk. Returns a tuple of sentences in the summarized verion
     # not perfect but pretty good
 
-    from newspaper import Article
+    import newspaper
 
-    article = Article(url)
-    article.download()
-    article.parse()
+    article_obj = newspaper.Article(url)
+    
     try:
-        article.nlp()
+        article_obj.download()
+    except newspaper.article.ArticleException:
+        # Returns description in this case. Something better than nothing
+        description_text = get_description_of_entry_or_url(url)
+        return description_text
+    article_obj.parse()
+    
+    try:
+        article_obj.nlp()
     except LookupError:
+        #punkt resource not downloaded
         import nltk
         nltk.download("punkt",quiet=True)
-        article.nlp()
-    summarized_text = article.summary
+        article_obj.nlp()
+    summarized_text = article_obj.summary
     return summarized_text
 
 
@@ -398,14 +406,7 @@ def what_to_tweet(entry:dict, description_from_html:bool) -> tuple[str,list,str]
         type_of_tweet = 'link'
         
     elif variables.tweet_description:
-        if description_from_html:
-                description_text = get_url_description_from_html(url)
-        else:
-            try:
-                description_text = entry['description']
-            except KeyError:
-                # Description of the article isn't present in the the RSS feed
-                description_text = get_url_description_from_html(url)
+        description_text = get_description_of_entry_or_url(entry, url, description_from_html)
         sentences_to_tweet = split_into_sentences(description_text)
         sentences_to_tweet.insert(0,entry['title'])
         type_of_tweet = 'description'
@@ -424,6 +425,18 @@ def what_to_tweet(entry:dict, description_from_html:bool) -> tuple[str,list,str]
         type_of_tweet = 'title'
     
     return (url, sentences_to_tweet, type_of_tweet)
+
+def get_description_of_entry_or_url(entry, url:str, description_from_html:bool) -> str:
+    if description_from_html:
+            description_text = get_url_description_from_html(url)
+    else:
+        try:
+            description_text = entry['description']
+        except KeyError:
+                # Description of the article isn't present in the the RSS feed
+            description_text = get_url_description_from_html(url)
+    
+    return description_text
 
 
 def shorten_tweet_text(text: str) -> str:
