@@ -1,0 +1,49 @@
+---
+name: Ritter bot deployment
+on:
+  schedule:
+    - cron: "0 0/1 * * *"
+  push:
+    branches:
+      - master
+jobs:
+  run-python-script-and-commit:
+    runs-on: ubuntu-latest
+    environment: ritter-bot.env
+    steps:
+      - name: Checkout deployment branch of the repo
+        uses: actions/checkout@v3
+        with:
+          ref: deployment
+      - name: Setup python and pip
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+          cache: "pip"
+      - name: Setup git config with name and email
+        run: |
+          # setup the username and email
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+      - name: Install required modules from requirements.txt
+        run: |
+          # installing required modules
+          pip install -r requirements.txt
+      - name: Provide env variables and run the script
+        env:
+          Bearer_Token: ${{ secrets.Bearer_Token }}
+          API_Key: ${{ secrets.API_KEY }}
+          API_Key_Secret: ${{ secrets.API_Key_Secret }}
+          Access_Token: ${{ secrets.Access_Token }}
+          Access_Token_Secret: ${{ secrets.Access_Token_Secret }}
+        run: python app.py
+      - name: commit log_files and old_log_files
+        if: ${{ always() }}
+        run: |
+          # Operation that changes a file in the git repo. Stage the file, commit and push
+          git checkout deployment
+          git add log_files -f
+          git add old_log_files -f
+          git commit -m "Ran script and updated_log_files"
+          git push origin deployment
+...
