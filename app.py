@@ -537,7 +537,7 @@ class TwitterUser:
         self.authenticated_user = tweepy.Client(bearer_token, api_key, api_key_secret, access_token, access_token_secret,wait_on_rate_limit=True)
     
     # All the below functions are tied to a user. They're supposed to be accessed by an authenticated user ( user.function() ), and are twitter specific.
-    def tweet_out(self, tweet_text: str = '', url: str = '', in_reply_to_id:int = 0) -> list:
+    def tweet_out(self, tweet_text: str = '', url: str = '', in_reply_to_id:int = 0) -> tuple:
         if 0 < len(tweet_text) <= 280:
             if not variables.testing_mode:
                 if not in_reply_to_id:
@@ -550,12 +550,12 @@ class TwitterUser:
                 Replicating same format here when testing_mode==False
                 example format: Response(data={"id": "1517736731571007488", "text": "Researcher Releases PoC for Recent Java Cryptographic Vulnerability https://t.co/uOOs0awlIU"}, includes={}, errors=[], meta={})
                 '''
-                tweeting = [
+                tweeting = (
                     {
                         'id': "#testing_mode=True",
                         'text': tweet_text,
                     }
-                ]
+                )
             return tweeting
         else:
             return self.tweet_out(shorten_tweet_text(tweet_text),url)

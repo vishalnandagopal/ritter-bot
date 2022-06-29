@@ -7,7 +7,7 @@ on:
     branches:
       - master
 jobs:
-  run-python-script-and-commit:
+  run-python-script-and-commit-log-files:
     runs-on: ubuntu-latest
     environment: ritter-bot.env
     steps:
@@ -43,7 +43,7 @@ jobs:
           # Operation that changes a file in the git repo. Stage the file, commit and push
           git checkout deployment
           git add log_files -f
-          git add old_log_files -f
+          # git add old_log_files -f
           git commit -m "Ran script and updated_log_files"
           git push origin deployment
 ...
