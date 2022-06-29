@@ -485,18 +485,17 @@ def feed_to_json(url: str):
 def get_api_keys() -> tuple[str,str,str,str,str]:
     from dotenv import load_dotenv
     try:
-        # get the necessary tokens from .env file. To hardcode the API keys, substitute the os.getenv('') with a string of the API keys.
+        # Get the necessary tokens from the ritter-bot.env file. To hardcode the API keys, substitute the os.getenv('') with a string of the API keys.
         if check_if_exists_in_directory("ritter-bot.env"):
             load_dotenv(r'ritter-bot.env')
         else:
-            # loads the env keys when using hosting sites such as heroku, etc
+            # Loads the env keys when using GitHub Actions, or hosting sites such as Heroku.
             load_dotenv()
         bearer_token = os.getenv('Bearer_Token')
         api_key = os.getenv('API_Key')
         api_key_secret = os.getenv('API_Key_Secret')
         access_token = os.getenv('Access_Token')
         access_token_secret = os.getenv('Access_Token_Secret')
-        
         return (bearer_token, api_key, api_key_secret,access_token,access_token_secret)
 
     except ValueError:
