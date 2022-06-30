@@ -6,7 +6,7 @@ import json
 
 # Functions defined from the next line up to the TwitterUser class are generic and not specific to Twitter. They're made for the project but can be used anywhere else.
 
-def read_and_check_config(config_error_count:int=0) -> tuple[bool,tuple[bool,bool,bool,bool,bool,bool,bool,bool,bool,int,int,int,bool,dict,list,bool]]:
+def read_and_check_config(config_error_count:int=0) -> tuple[bool,int,bool,bool,bool,bool,bool,bool,bool,bool,bool,int,int,int,bool,dict,list,bool]:
     print("Reading config file")
     with open("config.json", "r") as f:
             config = json.load(f)
@@ -43,8 +43,8 @@ def read_and_check_config(config_error_count:int=0) -> tuple[bool,tuple[bool,boo
         valid_config = False
     else:
         valid_config = True
-    
-    return (valid_config, config_values)
+    tweet_count = 0
+    return ( (valid_config,tweet_count) +  config_values)
 
 
 def write_to_file(stuff_to_write: str, file_name: str, directory:str = '', mode :str = 'a', set_pointer_position_from_end_and_truncate:int=0):
@@ -179,29 +179,25 @@ class GlobalVariables:
         self.read_config_and_set_variables() 
 
     def read_config_and_set_variables(self):
-
-                (
+        (
             self.valid_config,
-            
-            (
-                self.run_program,
-                self.cron_job_mode,
-                self.testing_mode,
-                self.tweet_only_link,
-                self.tweet_description,
-                self.tweet_summarized_article,
-                self.move_log_files,
-                self.delete_old_log_files,
-                self.delete_important_errors,
-                self.time_to_wait_after_a_tweet_in_seconds,
-                self.run_program_every_x_seconds,
-                self.time_to_wait_when_not_running_in_seconds,
-                self.ignore_https,
-                self.rss_feeds_to_fetch,
-                self.dont_summarize_these_urls,
-                self.reset_config_to_default
-                )
-
+            self.tweet_count,
+            self.run_program,
+            self.cron_job_mode,
+            self.testing_mode,
+            self.tweet_only_link,
+            self.tweet_description,
+            self.tweet_summarized_article,
+            self.move_log_files,
+            self.delete_old_log_files,
+            self.delete_important_errors,
+            self.time_to_wait_after_a_tweet_in_seconds,
+            self.run_program_every_x_seconds,
+            self.time_to_wait_when_not_running_in_seconds,
+            self.ignore_https,
+            self.rss_feeds_to_fetch,
+            self.dont_summarize_these_urls,
+            self.reset_config_to_default,
             ) = read_and_check_config()
 
 
@@ -396,13 +392,14 @@ def tld(url:str) -> str:
     domain = urlparse(url).netloc
     return domain
 
-def what_to_tweet(entry:dict, description_from_html:bool) -> tuple[str,list,str]:
-    # Default mode is to tweet the title + URL of the article. To change default, edit config.json
+def what_to_tweet(entry:dict, description_from_html:bool) -> tuple[str,list,str,bool]:
+    # Default mode is to tweet the title + URL of the article in the same tweet. To change the mode, edit config.json
 
     url = entry['link']
+    read_more = False
 
     if variables.tweet_only_link:
-        sentences_to_tweet = (url)
+        sentences_to_tweet = [url]
         type_of_tweet = 'link'
         
     elif variables.tweet_description:
@@ -410,6 +407,7 @@ def what_to_tweet(entry:dict, description_from_html:bool) -> tuple[str,list,str]
         sentences_to_tweet = split_into_sentences(description_text)
         sentences_to_tweet.insert(0,entry['title'])
         type_of_tweet = 'description'
+        read_more = True
          
     elif variables.tweet_summarized_article:
         if tld(url) not in variables.dont_summarize_these_urls:
@@ -419,12 +417,16 @@ def what_to_tweet(entry:dict, description_from_html:bool) -> tuple[str,list,str]
             sentences_to_tweet = split_into_sentences(description_text)
         sentences_to_tweet.insert(0,entry['title'])
         type_of_tweet = 'summary'
+        read_more = True
         
     else:
-        sentences_to_tweet = entry['title']
+        if len(entry['title']) > 254:
+            sentences_to_tweet = [shorten_tweet_text(entry['title'],character_count=254) + url]
+        else:
+            sentences_to_tweet = [entry['title'] + ' ' + url]
         type_of_tweet = 'title'
     
-    return (url, sentences_to_tweet, type_of_tweet)
+    return (url, sentences_to_tweet, type_of_tweet, read_more)
 
 def get_description_of_entry_or_url(entry, url:str, description_from_html:bool) -> str:
     if description_from_html:
@@ -439,9 +441,9 @@ def get_description_of_entry_or_url(entry, url:str, description_from_html:bool) 
     return description_text
 
 
-def shorten_tweet_text(text: str) -> str:
+def shorten_tweet_text(text: str,character_count: int = 276) -> str:
     # Shortens the text to 276 characters and appends "..." at the end. (Twitter's character limit is 280)
-    return text[0:276] + "..."
+    return (text[0:character_count] + "...")
 
 
 def log_to_file(ids: list, url: str, type_of_tweet: str, tweet_text):
@@ -545,21 +547,22 @@ class TwitterUser:
                         tweeting = self.authenticated_user.create_tweet(text=tweet_text)
                     else:
                         tweeting = self.authenticated_user.create_tweet(text=tweet_text, in_reply_to_tweet_id=in_reply_to_id)
+                    variables.tweet_count += 1
                 except Exception as e:
-                    tweeting = (
-                        {
-                            'id': "#error_so_not_tweeted",
-                            'text': tweet_text,
-                            }
-                            )
                     if "duplicate content" in str(e):
                         tweeting = (
                             {
                                 'id': "#duplicate tweet",
-                                'text': tweet_text,
+                                'text': tweet_text
                                 }
                                 )
-                        pass
+                    else:
+                        tweeting = (
+                            {
+                                'id': f"#{str(e)}_error_so_not_tweeted",
+                                'text': tweet_text
+                                }
+                                )
             else:
                 '''
                 tweeting is a list of lists returned by Client.create_tweet().
@@ -594,13 +597,14 @@ class TwitterUser:
             url = feed['entries'][i]['link']
             if new_link_validator(url):
                 entry = feed['entries'][i]
-                (url, sentences_to_tweet, type_of_tweet) = what_to_tweet(entry, description_from_html)
+                (url, sentences_to_tweet, type_of_tweet,read_more) = what_to_tweet(entry, description_from_html)
                 tweet_ids=[0]
                 for sentence in sentences_to_tweet:
                     tweeting = self.tweet_out(sentence, url,in_reply_to_id=tweet_ids[-1])
                     tweet_ids.append(tweeting[0]['id'])
-                tweeting = self.tweet_out("Read more at " + url,url,in_reply_to_id=tweet_ids[-1])
-                tweet_ids.append(tweeting[0]['id'])
+                if read_more:
+                    tweeting = self.tweet_out("Read more at " + url,url,in_reply_to_id=tweet_ids[-1])
+                    tweet_ids.append(tweeting[0]['id'])
                 
                 log_to_file(tweet_ids, url, type_of_tweet, sentences_to_tweet)
                 
@@ -671,7 +675,7 @@ def job():
     
     end_time = (time.ctime(),time.time())
     
-    print(f"Job started at {start_time[0]} and finished in {end_time[1] - start_time[1]} seconds")
+    print(f"Tweeted out {variables.tweet_count} times. Job started at {start_time[0]} and finished in {end_time[1] - start_time[1]} seconds")
 
 
 if variables.valid_config:
