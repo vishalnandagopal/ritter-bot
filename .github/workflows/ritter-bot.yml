@@ -34,6 +34,8 @@ jobs:
         run: python app.py
   commit-log-files:
     runs-on: ubuntu-latest
+    needs: run-python-script
+    if: ${{ always() }}
     steps:
       - name: Checkout deployment branch of the repo  
         uses: actions/checkout@v3
@@ -51,14 +53,13 @@ jobs:
             echo "log_files_exists=true" >> $GITHUB_ENV
           else
             echo "log_files does not exist"
-            echo "log_files_exists=true" >> $GITHUB_ENV
+            echo "log_files_exists=false" >> $GITHUB_ENV
           fi
       - name: Commit log_files if it exists
         if: env.log_files_exists
         run: |
           # Stages log_files, commits and pushes
           git checkout deployment
-          git add -AN
           git add log_files -f
           git commit -m "Updated log_files"
           git push origin deployment
@@ -70,14 +71,13 @@ jobs:
             echo "old_log_files_exists=true" >> $GITHUB_ENV
           else
             echo "old_log_files does not exist"
-            echo "old_log_files_exists=true" >> $GITHUB_ENV
+            echo "old_log_files_exists=false" >> $GITHUB_ENV
           fi
       - name: Commit old_log_files if it exists
         if: env.old_log_files_exists
         run: |
           # Stages old_log_files, commits and pushes
           git checkout deployment
-          git add -AN
           git add old_log_files -f
           git commit -m "Updated_log_files"
           git push origin deployment
