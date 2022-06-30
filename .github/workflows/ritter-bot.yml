@@ -19,8 +19,18 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.9"
-          cache: 'pip'
-      - name: Run the script
+          cache: "pip"
+      - name: Install required modules from requirements.txt
+        run: |
+          # Iinstalling required modules
+          pip install -r requirements.txt
+      - name: Provide env variables and run the script
+        env:
+          Bearer_Token: ${{ secrets.Bearer_Token }}
+          API_Key: ${{ secrets.API_KEY }}
+          API_Key_Secret: ${{ secrets.API_Key_Secret }}
+          Access_Token: ${{ secrets.Access_Token }}
+          Access_Token_Secret: ${{ secrets.Access_Token_Secret }}
         run: python app.py
   commit-log-files:
     runs-on: ubuntu-latest
