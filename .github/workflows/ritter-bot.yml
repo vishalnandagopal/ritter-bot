@@ -22,7 +22,7 @@ jobs:
           cache: "pip"
       - name: Install required modules from requirements.txt
         run: |
-          # Iinstalling required modules
+          # Installing required modules
           pip install -r requirements.txt
       - name: Provide env variables and run the script
         env:

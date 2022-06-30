@@ -546,7 +546,19 @@ class TwitterUser:
                     else:
                         tweeting = self.authenticated_user.create_tweet(text=tweet_text, in_reply_to_tweet_id=in_reply_to_id)
                 except Exception as e:
+                    tweeting = (
+                        {
+                            'id': "#error_so_not_tweeted",
+                            'text': tweet_text,
+                            }
+                            )
                     if "duplicate content" in str(e):
+                        tweeting = (
+                            {
+                                'id': "#duplicate tweet",
+                                'text': tweet_text,
+                                }
+                                )
                         pass
             else:
                 '''
