@@ -540,10 +540,14 @@ class TwitterUser:
     def tweet_out(self, tweet_text: str = '', url: str = '', in_reply_to_id:int = 0) -> tuple:
         if 0 < len(tweet_text) <= 280:
             if not variables.testing_mode:
-                if not in_reply_to_id:
-                    tweeting = self.authenticated_user.create_tweet(text=tweet_text)
-                else:
-                    tweeting = self.authenticated_user.create_tweet(text=tweet_text, in_reply_to_tweet_id=in_reply_to_id)
+                try:
+                    if not in_reply_to_id:
+                        tweeting = self.authenticated_user.create_tweet(text=tweet_text)
+                    else:
+                        tweeting = self.authenticated_user.create_tweet(text=tweet_text, in_reply_to_tweet_id=in_reply_to_id)
+                except Exception as e:
+                    if "duplicate content" in str(e):
+                        pass
             else:
                 '''
                 tweeting is a list of lists returned by Client.create_tweet().
