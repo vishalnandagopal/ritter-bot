@@ -13,19 +13,21 @@ jobs:
     steps:
       - name: Checkout the repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Check if deployment branch exists
         id: check-deployment
         run: |
-          git branch > branches.txt
-          if grep -Fxq "  deployment" branches.txt
+          git branch -r > branches.txt
+          if grep -Fxq "  origin/deployment" branches.txt
           then
-              echo "::set-output name=deployment_exists::true"
+              echo "::set-output name=deployment_does_not_exist::false"
           else
-              echo "::set-output name=deployment_exists::false"
+              echo "::set-output name=deployment_does_not_exist::true"
               echo "Deployment branch does not exist"
           fi
       - name: Create deployment branch if it does not exist
-        if: ${{ steps.check-deployment.outputs.deployment_exists == 'false' }}
+        if: steps.check-deployment.outputs.deployment_does_not_exist == 'true'
         run: |
           git checkout --orphan deployment
           git rm -rf .
@@ -47,10 +49,10 @@ jobs:
         run: |
           # Will not work if it is private repo, since it cannot be accessed by curl. Have to supply the github token in the header when curling
           git checkout deployment
-          curl --output app.py "{{ github.server_url }}/${{ github.repository }}/raw/${{ github.ref_name }}/app.py"
-          curl --output config.json "{{ github.server_url }}/${{ github.repository }}/raw/${{ github.ref_name }}/config.json"
-          curl --output default-config.json "{{ github.server_url }}/${{ github.repository }}/raw/${{ github.ref_name }}/default-config.json"
-          curl --output requirements.txt "{{ github.server_url }}/${{ github.repository }}/raw/${{ github.ref_name }}/requirements.txt"
+          curl --output app.py --location "${{ github.server_url }}/${{ github.repository }}/raw/${{ github.ref_name }}/app.py"
+          curl --output config.json --location "${{ github.server_url }}/${{ github.repository }}/raw/${{ github.ref_name }}/config.json"
+          curl --output default-config.json --location "${{ github.server_url }}/${{ github.repository }}/raw/${{ github.ref_name }}/default-config.json"
+          curl --output requirements.txt --location "${{ github.server_url }}/${{ github.repository }}/raw/${{ github.ref_name }}/requirements.txt"
           # Do some operation that changes a file in the git repo, to ensure "git add ." does not fail
           date > last-run-time.txt
       - name: Setup python and pip
