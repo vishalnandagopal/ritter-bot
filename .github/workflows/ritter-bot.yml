@@ -1,5 +1,5 @@
 ---
-name: Ritter bot deployment
+name: ritter bot deployment
 on:
   schedule:
     - cron: "0 1/1 * * *"
@@ -8,17 +8,55 @@ on:
       - master
   workflow_dispatch:
 jobs:
-  run-python-script:
+  check-if-deployment-branch-exists:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout master branch of the repo  
+      - name: Checkout the repo
+        uses: actions/checkout@v3
+      - name: Check if deployment branch exists
+        id: check-deployment
+        run: |
+          git branch > branches.txt
+          if grep -Fxq "  deployment" branches.txt
+          then
+              echo "::set-output name=deployment_exists::true"
+          else
+              echo "::set-output name=deployment_exists::false"
+              echo "Deployment branch does not exist"
+          fi
+      - name: Create deployment branch if it does not exist
+        if: ${{ steps.check-deployment.outputs.deployment_exists == 'false' }}
+        run: |
+          git checkout --orphan deployment
+          git rm -rf .
+          date > last-run-time.txt
+          git add last-run-time.txt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git commit -m "Adding inital commit of last run time text file"
+          git push origin deployment
+  run-ritter-bot:
+    runs-on: ubuntu-latest
+    needs: check-if-deployment-branch-exists
+    steps:
+      - name: Checkout the deployment branch of the repo
         uses: actions/checkout@v3
         with:
-          ref: master
+          ref: deployment
+      - name: Fetch files from the default branch of the repo (the branch the workflow was called from).
+        run: |
+          # Will not work if it is private repo, since it cannot be accessed by curl. Have to supply the github token in the header when curling
+          git checkout deployment
+          curl --output app.py "{{ github.server_url }}/${{ github.repository }}/raw/${{ github.ref_name }}/app.py"
+          curl --output config.json "{{ github.server_url }}/${{ github.repository }}/raw/${{ github.ref_name }}/config.json"
+          curl --output default-config.json "{{ github.server_url }}/${{ github.repository }}/raw/${{ github.ref_name }}/default-config.json"
+          curl --output requirements.txt "{{ github.server_url }}/${{ github.repository }}/raw/${{ github.ref_name }}/requirements.txt"
+          # Do some operation that changes a file in the git repo, to ensure "git add ." does not fail
+          date > last-run-time.txt
       - name: Setup python and pip
         uses: actions/setup-python@v4
         with:
-          python-version: "3.9"
+          python-version: "3.10"
           cache: "pip"
       - name: Install required modules from requirements.txt
         run: |
@@ -31,54 +69,13 @@ jobs:
           API_Key_Secret: ${{ secrets.API_Key_Secret }}
           Access_Token: ${{ secrets.Access_Token }}
           Access_Token_Secret: ${{ secrets.Access_Token_Secret }}
-        run: python app.py
-  commit-log-files:
-    runs-on: ubuntu-latest
-    needs: run-python-script
-    if: ${{ always() }}
-    steps:
-      - name: Checkout deployment branch of the repo  
-        uses: actions/checkout@v3
-        with:
-          ref: deployment
-      - name: Setup git config with name and email
+        run: python3 app.py
+      - name: Commit changes in the deployment branch
         run: |
+          # Adds all changes, commits and pushes
           git config user.name github-actions
           git config user.email github-actions@github.com
-      - name: Check if log files folder exists
-        run: |
-          if [ -d "log_files" ]
-          then
-            echo "log_files exists"
-            echo "log_files_exists=true" >> $GITHUB_ENV
-          else
-            echo "log_files does not exist"
-            echo "log_files_exists=false" >> $GITHUB_ENV
-          fi
-      - name: Commit log_files if it exists
-        if: env.log_files_exists
-        run: |
-          # Stages log_files, commits and pushes
-          git checkout deployment
-          git add log_files -f
-          git commit -m "Updated log_files"
-          git push origin deployment
-      - name: Check if old log files folder exists
-        run: |
-          if [ -d "old_log_files" ]
-          then
-            echo "old_log_files exists"
-            echo "old_log_files_exists=true" >> $GITHUB_ENV
-          else
-            echo "old_log_files does not exist"
-            echo "old_log_files_exists=false" >> $GITHUB_ENV
-          fi
-      - name: Commit old_log_files if it exists
-        if: env.old_log_files_exists
-        run: |
-          # Stages old_log_files, commits and pushes
-          git checkout deployment
-          git add old_log_files -f
-          git commit -m "Updated_log_files"
+          git add --all -- :!requirements.txt :!config.json :!default-config.json :!app.py
+          git commit -m "Ran workflow at $(TZ=":Asia/Calcutta" date +"%d/%m/%y %r") IST"
           git push origin deployment
 ...

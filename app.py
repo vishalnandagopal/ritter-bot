@@ -51,7 +51,7 @@ def write_to_file(stuff_to_write: str, file_name: str, directory:str = '', mode 
     # Writes stuff_to_write string to file_name, defaults to append mode. Directory can also be a sub-directories (even if parent directory does not exist). Eg: old_log_files\log_files
     try:
         if directory:
-            file_path = directory + "\\" + file_name
+            file_path = directory + "/" + file_name
         else:
             file_path = file_name
         with open(file_path, mode) as f:
@@ -70,7 +70,7 @@ def read_file_and_ignore_comments(file_name: str, directory:str = '') -> list:
     l1 = []
     try:
         if directory:
-            file_path = directory + "\\" + file_name
+            file_path = directory + "/" + file_name
         else:
             file_path = file_name
         with open(file_path,'r') as f:
@@ -106,10 +106,10 @@ def make_dir(dir_name:str):
 def move_file_or_dir(current_name:str, dir_to_move_to:str, add_ctime_to_name_after_moving:bool = False):
     try:
         if add_ctime_to_name_after_moving:
-            new_name = dir_to_move_to + '\\' + current_name + (f" at {time.ctime()}").replace(":","-",3)
+            new_name = dir_to_move_to + "/" + current_name + (f" at {time.ctime()}").replace(":","-",3)
             os.rename(current_name, new_name)
         else:
-            new_name = dir_to_move_to + '\\' + current_name
+            new_name = dir_to_move_to + "/" + current_name
             os.rename(current_name, new_name)
     except FileNotFoundError:
         make_dir(current_name)
@@ -140,13 +140,15 @@ def check_if_exists_in_directory(file_name:str,directory:str='') -> bool:
         if directory:
             os.chdir(directory)
         return file_name in os.listdir()
+    except FileNotFoundError:
+        return False
     finally:
         os.chdir(current_working_dir)
 
 
 def check_if_file_is_empty(file_name:str,directory:str='') -> bool:
     if directory:
-        file_path = directory + "\\" + file_name
+        file_path = directory + "/" + file_name
     else:
         file_path = file_name
     try:
@@ -200,8 +202,8 @@ class GlobalVariables:
             self.reset_config_to_default,
             ) = read_and_check_config()
 
-
 variables = GlobalVariables()
+
 
 def reset_config():
     default_config = read_file_and_ignore_comments('default-config.json')
@@ -387,7 +389,8 @@ def check_merge_sentences(single_sentences: list, index: int, already_added: lis
         sentences_to_tweet.append(sentence)
     return (already_added, sentences_to_tweet)
 
-def tld(url:str) -> str:
+def tldize(url:str) -> str:
+    # Returns the domain of the URL. Example: https://github.com/vishalnandagopal -> github.com, https://google.co.in/search?q=vishal -> google.co.in
     from urllib.parse import urlparse
     domain = urlparse(url).netloc
     return domain
@@ -410,7 +413,7 @@ def what_to_tweet(entry:dict, description_from_html:bool) -> tuple[str,list,str,
         read_more = True
          
     elif variables.tweet_summarized_article:
-        if tld(url) not in variables.dont_summarize_these_urls:
+        if tldize(url) not in variables.dont_summarize_these_urls:
             sentences_to_tweet =  split_into_sentences(summarize_article(url))
         else:
             description_text = get_url_description_from_html(url)
@@ -539,7 +542,7 @@ class TwitterUser:
         self.authenticated_user = tweepy.Client(bearer_token, api_key, api_key_secret, access_token, access_token_secret,wait_on_rate_limit=True)
     
     # All the below functions are tied to a user. They're supposed to be accessed by an authenticated user ( user.function() ), and are twitter specific.
-    def tweet_out(self, tweet_text: str = '', url: str = '', in_reply_to_id:int = 0) -> tuple:
+    def tweet_out(self, tweet_text: str = '', in_reply_to_id:int = 0) -> tuple:
         if 0 < len(tweet_text) <= 280:
             if not variables.testing_mode:
                 try:
@@ -552,17 +555,21 @@ class TwitterUser:
                     if "duplicate content" in str(e):
                         tweeting = (
                             {
-                                'id': "#duplicate tweet",
+                                'id': 0,
                                 'text': tweet_text
-                                }
+                                },
+                                ["duplicate_content"]
                                 )
                     else:
                         tweeting = (
                             {
-                                'id': f"#{str(e)}_error_so_not_tweeted",
+                                'id': 0,
                                 'text': tweet_text
-                                }
+                                },
+                                [str(e)]
                                 )
+                        write_to_file(str(e) + "\n",'important-errors.txt')
+                        raise e
             else:
                 '''
                 tweeting is a list of lists returned by Client.create_tweet().
@@ -571,13 +578,14 @@ class TwitterUser:
                 '''
                 tweeting = (
                     {
-                        'id': "#testing_mode=True",
+                        'id': 0,
                         'text': tweet_text,
-                    }
+                    },
+                    ["testing_mode=True"]
                 )
             return tweeting
         else:
-            return self.tweet_out(shorten_tweet_text(tweet_text),url)
+            return self.tweet_out(shorten_tweet_text(tweet_text))
     
     
     def tweet_feed(self, feed, description_from_html:bool = False):
@@ -603,9 +611,9 @@ class TwitterUser:
                     tweeting = self.tweet_out(sentence, url,in_reply_to_id=tweet_ids[-1])
                     tweet_ids.append(tweeting[0]['id'])
                 if read_more:
-                    tweeting = self.tweet_out("Read more at " + url,url,in_reply_to_id=tweet_ids[-1])
+                    tweeting = self.tweet_out("Read more at " + url,in_reply_to_id=tweet_ids[-1])
                     tweet_ids.append(tweeting[0]['id'])
-                
+                print(f"{tweeting[0]['id']} is the tweet ID for {url}")
                 log_to_file(tweet_ids, url, type_of_tweet, sentences_to_tweet)
                 
                 time.sleep(variables.time_to_wait_after_a_tweet_in_seconds)
@@ -662,6 +670,7 @@ def job():
     else:
         print(f"Program not running. Waiting for {variables.time_to_wait_when_not_running_in_seconds} seconds")
         time.sleep(variables.time_to_wait_when_not_running_in_seconds)
+
     
     if variables.move_log_files or variables.delete_old_log_files or variables.delete_important_errors:
         move_or_clear_files(variables.delete_old_log_files,variables.move_log_files,variables.delete_important_errors)

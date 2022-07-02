@@ -4,7 +4,7 @@
     "testing_mode": false,
     "tweet_only_link": false,
     "tweet_description": false,
-    "tweet_summarized_article": true,
+    "tweet_summarized_article": false,
     "move_log_files": false,
     "delete_old_log_files": false,
     "delete_important_errors": false,
