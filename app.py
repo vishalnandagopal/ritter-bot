@@ -585,7 +585,7 @@ class TwitterUser:
                 )
             return tweeting
         else:
-            return self.tweet_out(shorten_tweet_text(tweet_text))
+            return self.tweet_out(shorten_tweet_text(tweet_text),in_reply_to_id)
     
     
     def tweet_feed(self, feed, description_from_html:bool = False):
@@ -608,7 +608,7 @@ class TwitterUser:
                 (url, sentences_to_tweet, type_of_tweet,read_more) = what_to_tweet(entry, description_from_html)
                 tweet_ids=[0]
                 for sentence in sentences_to_tweet:
-                    tweeting = self.tweet_out(sentence, url,in_reply_to_id=tweet_ids[-1])
+                    tweeting = self.tweet_out(sentence,in_reply_to_id=tweet_ids[-1])
                     tweet_ids.append(tweeting[0]['id'])
                 if read_more:
                     tweeting = self.tweet_out("Read more at " + url,in_reply_to_id=tweet_ids[-1])
