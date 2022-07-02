@@ -1,0 +1,152 @@
+{
+    "https://worthdoingbadly.com/coretrust/": {
+        "id": "['1543359366572679168']",
+        "text": "['Get root on macOS 12.3.1: proof-of-concepts for Linus Henze\u2019s CoreTrust and DriverKit bugs (CVE-2022-26766, CVE-2022-26763) https://worthdoingbadly.com/coretrust/']",
+        "time": "Sat Jul  2 22:22:02 2022",
+        "type": "title"
+    },
+    "https://arxiv.org/pdf/2005.07255.pdf": {
+        "id": "['1543359375749824512']",
+        "text": "[\"MagicPairing: Apple's Take on Securing Bluetooth Peripherals https://arxiv.org/pdf/2005.07255.pdf\"]",
+        "time": "Sat Jul  2 22:22:04 2022",
+        "type": "title"
+    },
+    "https://github.blog/2022-06-29-the-chromium-super-inline-cache-type-confusion/": {
+        "id": "['1543359384708841472']",
+        "text": "['The Chromium super (inline cache) type confusion https://github.blog/2022-06-29-the-chromium-super-inline-cache-type-confusion/']",
+        "time": "Sat Jul  2 22:22:06 2022",
+        "type": "title"
+    },
+    "https://programming-journal.org/2023/7/1/": {
+        "id": "['1543359393680474112']",
+        "text": "['Building a Secure Software Supply Chain with GNU Guix https://programming-journal.org/2023/7/1/']",
+        "time": "Sat Jul  2 22:22:08 2022",
+        "type": "title"
+    },
+    "https://blog.cloudflare.com/live-patch-security-vulnerabilities-with-ebpf-lsm/": {
+        "id": "['1543359402622722049']",
+        "text": "['Live-patching security vulnerabilities inside the Linux kernel with eBPF Linux Security Module https://blog.cloudflare.com/live-patch-security-vulnerabilities-with-ebpf-lsm/']",
+        "time": "Sat Jul  2 22:22:10 2022",
+        "type": "title"
+    },
+    "https://blog.christophetd.fr/abusing-cloudflare-workers/": {
+        "id": "['1543359411632095232']",
+        "text": "['Abusing Cloudflare Workers https://blog.christophetd.fr/abusing-cloudflare-workers/']",
+        "time": "Sat Jul  2 22:22:12 2022",
+        "type": "title"
+    },
+    "https://blog.ovalerio.net/archives/2439": {
+        "id": "['1543359420624691201']",
+        "text": "['Controlling the access to the clipboard contents https://blog.ovalerio.net/archives/2439']",
+        "time": "Sat Jul  2 22:22:14 2022",
+        "type": "title"
+    },
+    "https://www.rfc-editor.org/rfc/rfc8657.html": {
+        "id": "['1543359429625749508']",
+        "text": "['RFC 8657: CAA Record Extensions for Account URI and ACME Method Binding https://www.rfc-editor.org/rfc/rfc8657.html']",
+        "time": "Sat Jul  2 22:22:17 2022",
+        "type": "title"
+    },
+    "https://shkspr.mobi/blog/2022/06/ive-locked-myself-out-of-my-digital-life/": {
+        "id": "['1543359438786072579']",
+        "text": "[\"I've locked myself out of my digital life https://shkspr.mobi/blog/2022/06/ive-locked-myself-out-of-my-digital-life/\"]",
+        "time": "Sat Jul  2 22:22:19 2022",
+        "type": "title"
+    },
+    "https://guidovranken.com/2022/06/27/notes-on-openssl-remote-memory-corruption/": {
+        "id": "['1543359447837319175']",
+        "text": "['Notes on OpenSSL remote memory corruption https://guidovranken.com/2022/06/27/notes-on-openssl-remote-memory-corruption/']",
+        "time": "Sat Jul  2 22:22:21 2022",
+        "type": "title"
+    },
+    "https://blog.apnic.net/2022/06/27/is-zero-trust-living-up-to-expectations/": {
+        "id": "['1543359456817385472']",
+        "text": "['Is zero trust living up to expectations? https://blog.apnic.net/2022/06/27/is-zero-trust-living-up-to-expectations/']",
+        "time": "Sat Jul  2 22:22:23 2022",
+        "type": "title"
+    },
+    "https://www.assured.se/publications/Assured_Mullvad_relay_server_audit_report_2022.pdf": {
+        "id": "['1543359465923158022']",
+        "text": "['Mullvad VPN relay audit https://www.assured.se/publications/Assured_Mullvad_relay_server_audit_report_2022.pdf']",
+        "time": "Sat Jul  2 22:22:25 2022",
+        "type": "title"
+    },
+    "https://github.com/elesiuta/picosnitch": {
+        "id": "['1543359474936811524']",
+        "text": "['picosnitch: Monitor Linux network traffic per executable using BPF https://github.com/elesiuta/picosnitch']",
+        "time": "Sat Jul  2 22:22:27 2022",
+        "type": "title"
+    },
+    "https://www.bejarano.io/sms-phishing/": {
+        "id": "['1543359483916832769']",
+        "text": "['SMS phishing is way too easy https://www.bejarano.io/sms-phishing/']",
+        "time": "Sat Jul  2 22:22:29 2022",
+        "type": "title"
+    },
+    "https://blog.apnic.net/2022/06/24/ferret-automatically-finding-rfc-compliance-bugs-in-dns-nameservers/": {
+        "id": "['1543359492997398528']",
+        "text": "['Ferret: Automatically finding RFC compliance bugs in DNS nameservers https://blog.apnic.net/2022/06/24/ferret-automatically-finding-rfc-compliance-bugs-in-dns-nameservers/']",
+        "time": "Sat Jul  2 22:22:32 2022",
+        "type": "title"
+    },
+    "https://googleprojectzero.blogspot.com/2022/06/curious-case-carrier-app.html": {
+        "id": "['1543359502040326144']",
+        "text": "['The curious tale of a fake Carrier.app https://googleprojectzero.blogspot.com/2022/06/curious-case-carrier-app.html']",
+        "time": "Sat Jul  2 22:22:34 2022",
+        "type": "title"
+    },
+    "https://rachelbythebay.com/w/2022/06/16/rce/": {
+        "id": "['1543359511024619522']",
+        "text": "[\"Free associating from 'df' to RCE https://rachelbythebay.com/w/2022/06/16/rce/\"]",
+        "time": "Sat Jul  2 22:22:36 2022",
+        "type": "title"
+    },
+    "https://www.youtube.com/watch?v=icBD5PiyoyI": {
+        "id": "['1543359519966875654']",
+        "text": "['Recovering a cryptocurrency wallet from a Samsung Galaxy https://www.youtube.com/watch?v=icBD5PiyoyI']",
+        "time": "Sat Jul  2 22:22:38 2022",
+        "type": "title"
+    },
+    "https://tailscale.com/blog/tailscale-ssh/": {
+        "id": "['1543359528988729351']",
+        "text": "['Introducing Tailscale SSH https://tailscale.com/blog/tailscale-ssh/']",
+        "time": "Sat Jul  2 22:22:40 2022",
+        "type": "title"
+    },
+    "https://flaked.sockpuppet.org/2022/06/21/because-ive-obviously.html": {
+        "id": "['1543359537985486849']",
+        "text": "['MEGA attack explainer https://flaked.sockpuppet.org/2022/06/21/because-ive-obviously.html']",
+        "time": "Sat Jul  2 22:22:42 2022",
+        "type": "title"
+    },
+    "https://www.cambus.net/clang-static-analyzer-and-the-z3-constraint-solver/": {
+        "id": "['1543359547015929859']",
+        "text": "['Clang Static Analyzer and the Z3 constraint solver https://www.cambus.net/clang-static-analyzer-and-the-z3-constraint-solver/']",
+        "time": "Sat Jul  2 22:22:45 2022",
+        "type": "title"
+    },
+    "https://mega-awry.io/": {
+        "id": "['1543359556117479427']",
+        "text": "['MEGA: Malleable Encryption Goes Awry https://mega-awry.io/']",
+        "time": "Sat Jul  2 22:22:47 2022",
+        "type": "title"
+    },
+    "https://en.wikipedia.org/wiki/Lavarand": {
+        "id": "['1543359565101678593']",
+        "text": "['Lavarand - lava lamp-based hardware random number generator https://en.wikipedia.org/wiki/Lavarand']",
+        "time": "Sat Jul  2 22:22:49 2022",
+        "type": "title"
+    },
+    "https://theoryof.predictable.software/articles/a-closer-look-at-cvss-scores/": {
+        "id": "['1543359574018859013']",
+        "text": "['A closer look at CVSS scores https://theoryof.predictable.software/articles/a-closer-look-at-cvss-scores/']",
+        "time": "Sat Jul  2 22:22:51 2022",
+        "type": "title"
+    },
+    "https://zerotrustroadmap.org/": {
+        "id": "['1543359583007215617']",
+        "text": "['A Roadmap to Zero Trust Architecture https://zerotrustroadmap.org/']",
+        "time": "Sat Jul  2 22:22:53 2022",
+        "type": "title"
+    }
+}
