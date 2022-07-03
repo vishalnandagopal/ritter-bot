@@ -136,17 +136,5 @@
         "text": "['Lavarand - lava lamp-based hardware random number generator https://en.wikipedia.org/wiki/Lavarand']",
         "time": "Sat Jul  2 22:22:49 2022",
         "type": "title"
-    },
-    "https://theoryof.predictable.software/articles/a-closer-look-at-cvss-scores/": {
-        "id": "['1543359574018859013']",
-        "text": "['A closer look at CVSS scores https://theoryof.predictable.software/articles/a-closer-look-at-cvss-scores/']",
-        "time": "Sat Jul  2 22:22:51 2022",
-        "type": "title"
-    },
-    "https://zerotrustroadmap.org/": {
-        "id": "['1543359583007215617']",
-        "text": "['A Roadmap to Zero Trust Architecture https://zerotrustroadmap.org/']",
-        "time": "Sat Jul  2 22:22:53 2022",
-        "type": "title"
     }
 }
