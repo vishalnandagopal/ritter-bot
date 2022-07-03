@@ -21,3 +21,5 @@ https://flaked.sockpuppet.org/2022/06/21/because-ive-obviously.html
 https://www.cambus.net/clang-static-analyzer-and-the-z3-constraint-solver/
 https://mega-awry.io/
 https://en.wikipedia.org/wiki/Lavarand
+https://theoryof.predictable.software/articles/a-closer-look-at-cvss-scores/
+https://zerotrustroadmap.org/
