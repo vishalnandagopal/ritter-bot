@@ -160,5 +160,23 @@
         "text": "['2022 0-day In-the-Wild Exploitation\u2026so far', 'News and updates from the Project Zero team at Google', 'News and updates from the Project Zero team at Google']",
         "time": "Mon Jul  4 19:07:35 2022",
         "type": "summary"
+    },
+    "https://github.com/nathants/backup": {
+        "id": "['1544080491778899969', '1544080492412149760', '1544080492949127174', '1544080493490094081']",
+        "text": "['immutable backups so simple that unborkable', 'immutable backups so simple that unborkable.', 'immutable backups so simple that unborkable. Contribute to nathants/backup development by creating an account on GitHub.']",
+        "time": "Mon Jul  4 22:07:32 2022",
+        "type": "summary"
+    },
+    "https://news.stanford.edu/2019/07/29/seeing-moving-objects-around-corners/": {
+        "id": "['1544080503652876290', '1544080504345034752', '1544080505141972997', '1544080505771069440', '1544080506312167424', '1544080506870005760', '1544080507620802560', '1544080508338028546', '1544080509080420353', '1544080509638250497']",
+        "text": "['Seeing moving objects around corners', 'Through a camera aimed away from Lindell \u2013 at what appeared to be a blank wall \u2013 his colleagues could watch his every move.', 'Through a camera aimed away from Lindell \u2013 at what appeared to be a blank wall \u2013 his colleagues could watch his every move. The captured measurements played back as a video, showing light splashing across the wall as it scatters back from the hidden objects.', 'Previous systems for viewing scenes outside a camera\u2019s line of sight relied on objects that either reflect light evenly or strongly.', 'Previous systems for viewing scenes outside a camera\u2019s line of sight relied on objects that either reflect light evenly or strongly.', 'But real-world objects, including shiny cars, fall outside these categories, so this system can handle light bouncing off a range of surfaces, including disco balls, books and intricately textured statues.', 'But real-world objects, including shiny cars, fall outside these categories, so this system can handle light bouncing off a range of surfaces, including disco balls, books and intricately textured statues.', 'The around-the-corner camera\u2019s near-real-time reconstruction of David Lindell moving around in a high visibility tracksuit.', 'The around-the-corner camera\u2019s near-real-time reconstruction of David Lindell moving around in a high visibility tracksuit.']",
+        "time": "Mon Jul  4 22:07:35 2022",
+        "type": "summary"
+    },
+    "https://www.theguardian.com/technology/2019/jul/23/anonymised-data-never-be-anonymous-enough-study-finds": {
+        "id": "['1544080519394099204', '1544080520006467586', '1544080520589594625', '1544080521277358082', '1544080521847873539', '1544080522388848640', '1544080523005501442', '1544080523747893248', '1544080524385320967', '1544080525064904705']",
+        "text": "[\"'Anonymised' data can never be totally anonymous, says study\", '\u201cAnonymised\u201d data lies at the core of everything from modern medical research to personalised recommendations and modern AI techniques.', '\u201cAnonymised\u201d data lies at the core of everything from modern medical research to personalised recommendations and modern AI techniques. Unfortunately, according to a paper, successfully anonymising data is practically impossible for any complex dataset.', 'Despite this, data brokers such as Experian sell \u201cdeidentified\u201d datasets containing vastly more information per person.', 'Despite this, data brokers such as Experian sell \u201cdeidentified\u201d datasets containing vastly more information per person.', 'The researchers, led by Luc Rocher at UCLouvain, argue their results show that anonymisation is not enough for companies to get around laws such as GDPR (general data protection regulation).', 'The researchers, led by Luc Rocher at UCLouvain, argue their results show that anonymisation is not enough for companies to get around laws such as GDPR (general data protection regulation).', 'Homomorphic encryption involves encrypting data so it cannot be read but can still be manipulated; the results are still encrypted, but can be decrypted once returned to the data controller.', 'Homomorphic encryption involves encrypting data so it cannot be read but can still be manipulated; the results are still encrypted, but can be decrypted once returned to the data controller.']",
+        "time": "Mon Jul  4 22:07:39 2022",
+        "type": "summary"
     }
 }
