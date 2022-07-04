@@ -23,3 +23,4 @@ https://mega-awry.io/
 https://en.wikipedia.org/wiki/Lavarand
 https://theoryof.predictable.software/articles/a-closer-look-at-cvss-scores/
 https://zerotrustroadmap.org/
+https://scottarc.blog/2022/07/04/police-cyberalarm-uses-alarming-cryptography/
