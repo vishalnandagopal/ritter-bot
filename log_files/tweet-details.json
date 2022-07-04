@@ -154,5 +154,11 @@
         "text": "['Police CyberAlarm Uses Alarming Cryptography', 'Police CyberAlarm Uses Alarming CryptographyToday we\u2019re going to be talking about this code, shared on Twitter by Paul Moore.', 'Police CyberAlarm Uses Alarming CryptographyToday we\u2019re going to be talking about this code, shared on Twitter by Paul Moore. Vulnerabilities in the Decrypt FunctionDowngrade AttackTake an encrypted message that you\u2019re interested in decrypting.', 'Other Cryptography Design FlawsUsing the Same Key for Multiple AlgorithmsPolice CyberAlarm uses the same encryption key for both AES-CBC encryption and for HMAC-SHA256.', 'Other Cryptography Design FlawsUsing the Same Key for Multiple AlgorithmsPolice CyberAlarm uses the same encryption key for both AES-CBC encryption and for HMAC-SHA256.', 'This violates one of the tenets of cryptography protocol design: Never use the same key for more than one purpose.', 'This violates one of the tenets of cryptography protocol design: Never use the same key for more than one purpose. SummaryThe cryptography used by Police CyberAlarm is not secure and should be replaced with something more secure.']",
         "time": "Mon Jul  4 12:26:05 2022",
         "type": "summary"
+    },
+    "https://googleprojectzero.blogspot.com/2022/06/2022-0-day-in-wild-exploitationso-far.html": {
+        "id": "['1544035206226513921', '1544035206717247488', '1544035207170256896', '1544035207644192770']",
+        "text": "['2022 0-day In-the-Wild Exploitation\u2026so far', 'News and updates from the Project Zero team at Google', 'News and updates from the Project Zero team at Google']",
+        "time": "Mon Jul  4 19:07:35 2022",
+        "type": "summary"
     }
 }
