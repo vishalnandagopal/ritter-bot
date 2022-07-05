@@ -184,5 +184,11 @@
         "text": "['\u201cMagic links\u201d can end up in Bing search results\\u200a\u2014\\u200arendering them useless', '\u201cMagic links\u201d can end up in Bing search results \u2014 rendering them useless.', '\u201cMagic links\u201d can end up in Bing search results \u2014 rendering them useless. I recently started verifying user email addresses during signup to prevent bots, mistyped emails, and also to ensure that addresses are active for future emails and newsletters.', 'The only logical explanation was that Microsoft was sharing email data (links included) with Bing for indexing.', 'The only logical explanation was that Microsoft was sharing email data (links included) with Bing for indexing. Microsoft is sharing private email data with its search engine? Bing has been indexing my email verification links.']",
         "time": "Tue Jul  5 13:50:47 2022",
         "type": "summary"
+    },
+    "https://inspektor.cloud/blog/decrypting-recent-security-incidents": {
+        "id": "['1544337247478206464', '1544337247977328641', '1544337248656756737', '1544337249231405058', '1544337249814339586', '1544337250510577664', '1544337251236298752', '1544337251827683336']",
+        "text": "['decrypting recent security incidents', 'But exposing nearly a million Kubernetes clusters seems a little serious and made me revisit some of the security issues in recent days.', \"But exposing nearly a million Kubernetes clusters seems a little serious and made me revisit some of the security issues in recent days. Log4JIf you are coming from the Java world, you wouldn't have missed the log4j vulnerability.\", 'Log4j vulnerability will allow the attacker to run the code whatever they want and gain access to the system.', 'Log4j vulnerability will allow the attacker to run the code whatever they want and gain access to the system. The present time itself is full of challenges in the world of network security.', 'We covered only a fraction of security incidents, we have curated the list of leaks around the world in the github repo.', 'We covered only a fraction of security incidents, we have curated the list of leaks around the world in the github repo.']",
+        "time": "Tue Jul  5 15:07:47 2022",
+        "type": "summary"
     }
 }
