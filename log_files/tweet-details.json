@@ -190,5 +190,11 @@
         "text": "['decrypting recent security incidents', 'But exposing nearly a million Kubernetes clusters seems a little serious and made me revisit some of the security issues in recent days.', \"But exposing nearly a million Kubernetes clusters seems a little serious and made me revisit some of the security issues in recent days. Log4JIf you are coming from the Java world, you wouldn't have missed the log4j vulnerability.\", 'Log4j vulnerability will allow the attacker to run the code whatever they want and gain access to the system.', 'Log4j vulnerability will allow the attacker to run the code whatever they want and gain access to the system. The present time itself is full of challenges in the world of network security.', 'We covered only a fraction of security incidents, we have curated the list of leaks around the world in the github repo.', 'We covered only a fraction of security incidents, we have curated the list of leaks around the world in the github repo.']",
         "time": "Tue Jul  5 15:07:47 2022",
         "type": "summary"
+    },
+    "https://github.com/h3xduck/TripleCross": {
+        "id": "['1544353786055086080', '1544353786625490944', '1544353787204325377', '1544353787799896066']",
+        "text": "['TripleCross: A Linux eBPF rootkit with a backdoor, C2, library injection, execution hijacking', 'A Linux eBPF rootkit with a backdoor, C2, library injection, execution hijacking, persistence and stealth capabilities.', 'A Linux eBPF rootkit with a backdoor, C2, library injection, execution hijacking, persistence and stealth capabilities. - GitHub - h3xduck/TripleCross: A Linux eBPF rootkit with a backdoor, C2, library injection, execution hijacking, persistence and stealth capabilities.']",
+        "time": "Tue Jul  5 16:13:30 2022",
+        "type": "summary"
     }
 }
