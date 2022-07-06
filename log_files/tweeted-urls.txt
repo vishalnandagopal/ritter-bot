@@ -31,3 +31,4 @@ https://www.theguardian.com/technology/2019/jul/23/anonymised-data-never-be-anon
 https://medium.com/@ryanbadger/magic-links-can-end-up-in-bing-search-results-rendering-them-useless-37def0fae994
 https://inspektor.cloud/blog/decrypting-recent-security-incidents
 https://github.com/h3xduck/TripleCross
+https://blog.enarx.dev/enarx-0-6-0-fushimi-castle/
