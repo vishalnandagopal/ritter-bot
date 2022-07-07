@@ -33,3 +33,4 @@ https://inspektor.cloud/blog/decrypting-recent-security-incidents
 https://github.com/h3xduck/TripleCross
 https://blog.enarx.dev/enarx-0-6-0-fushimi-castle/
 https://lists.apache.org/thread/tdf5n7j80lfxdhs2764vn0xmpfodm87s
+https://exceptionfactory.com/posts/2022/05/31/analyzing-and-mitigating-xml-external-entity-vulnerabilities-in-apache-nifi/
