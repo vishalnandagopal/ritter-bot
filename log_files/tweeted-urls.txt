@@ -41,3 +41,4 @@ https://lucumr.pocoo.org/2022/7/9/congratulations/
 https://mozilla.github.io/cargo-vet/
 https://blog.sidstamm.com/2021/12/reckless-software-construction.html
 https://utcc.utoronto.ca/~cks/space/blog/tech/MFAAccountRecoveryDistrust
+https://www.b-list.org/weblog/2022/jul/11/pypi/
