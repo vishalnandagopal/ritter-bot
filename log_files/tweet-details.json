@@ -250,5 +250,11 @@
         "text": "['Reckless Software Construction']",
         "time": "Mon Jul 11 09:13:14 2022",
         "type": "summary"
+    },
+    "https://utcc.utoronto.ca/~cks/space/blog/tech/MFAAccountRecoveryDistrust": {
+        "id": "['1546450940470988800', '1546450941058203649', '1546450941758644224', '1546450942488444934', '1546450943146954754', '1546450943822241792']",
+        "text": "[\"My distrust of multi-factor authentication's account recovery story\", \"Some of them aren't giving some people a choice about it; for example, PyPI recently mandated MFA for sufficiently popular projects.\", \"Some of them aren't giving some people a choice about it; for example, PyPI recently mandated MFA for sufficiently popular projects. Specifically, the ones related to 'account recovery', also known as what happens when things go wrong with your MFA-related devices.\", \"There's no general account recovery problem with MFA.\", \"There's no general account recovery problem with MFA. If PyPI considers you and your package critical, it's very likely that you can recover from an MFA loss. But most random websites that ask me to enable MFA are much more like Google than PyPI.)\"]",
+        "time": "Mon Jul 11 11:06:51 2022",
+        "type": "summary"
     }
 }
