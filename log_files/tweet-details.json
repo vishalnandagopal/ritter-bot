@@ -244,5 +244,11 @@
         "text": "['cargo-vet: supply-chain security for Rust', 'The cargo vet subcommand is a tool to help projects ensure that third-party Rust dependencies have been audited by a trusted entity.', 'The cargo vet subcommand is a tool to help projects ensure that third-party Rust dependencies have been audited by a trusted entity.', \"When run, cargo vet matches all of a project's third-party dependencies against a set of audits performed by the project authors or entities they trust.\", \"When run, cargo vet matches all of a project's third-party dependencies against a set of audits performed by the project authors or entities they trust.\", 'There are a few key ways that cargo vet aims to reduce developer effort to a manageable level:Sharing : Public crates are often used by many projects.', 'There are a few key ways that cargo vet aims to reduce developer effort to a manageable level:Sharing : Public crates are often used by many projects. Relative Audits : Different versions of the same crate are often quite similar to each other.', 'This makes it trivial to introduce cargo vet to a new project and guard against future vulnerabilities while vetting the pre-existing code gradually as time permits.', 'This makes it trivial to introduce cargo vet to a new project and guard against future vulnerabilities while vetting the pre-existing code gradually as time permits.']",
         "time": "Mon Jul 11 08:11:01 2022",
         "type": "summary"
+    },
+    "https://blog.sidstamm.com/2021/12/reckless-software-construction.html": {
+        "id": "['1546422352195502081', '1546422352694722560']",
+        "text": "['Reckless Software Construction']",
+        "time": "Mon Jul 11 09:13:14 2022",
+        "type": "summary"
     }
 }
