@@ -44,3 +44,4 @@ https://utcc.utoronto.ca/~cks/space/blog/tech/MFAAccountRecoveryDistrust
 https://www.b-list.org/weblog/2022/jul/11/pypi/
 https://dodcio.defense.gov/open-source-software-faq/
 https://comsec.ethz.ch/research/microarch/retbleed/
+https://garrit.xyz/ctf
