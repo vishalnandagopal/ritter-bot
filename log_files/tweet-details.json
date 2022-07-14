@@ -286,5 +286,11 @@
         "text": "['DARPA to study open source integrity', 'Margin\u2019s work maps out who is working on what specific parts of open-source projects.', 'Margin\u2019s work maps out who is working on what specific parts of open-source projects. Margin has also mapped code written by NSA employees, many of whom participate in different open-source projects.', 'The government is only just realizing that our critical infrastructure is running code that could be literally being written by sanctioned entities.', 'The government is only just realizing that our critical infrastructure is running code that could be literally being written by sanctioned entities.', 'Right now.\u201dThis kind of research also aims to find underinvestment\u2014that is critical software run entirely by one or two volunteers.', 'Right now.\u201dThis kind of research also aims to find underinvestment\u2014that is critical software run entirely by one or two volunteers.', '\u201cPretty much everywhere you look, you find open-source software,\u201d says Bratus.\u201cEven when you look at proprietary software, a recent study showed it\u2019s actually 70% or more open source.\u201d\u201cThis is a critical infrastructure problem,\u201d Aitel says.', '\u201cPretty much everywhere you look, you find open-source software,\u201d says Bratus.\u201cEven when you look at proprietary software, a recent study showed it\u2019s actually 70% or more open source.\u201d\u201cThis is a critical infrastructure problem,\u201d Aitel says.']",
         "time": "Thu Jul 14 13:43:59 2022",
         "type": "summary"
+    },
+    "https://www.thezdi.com/blog/2022/7/13/cve-2022-30136-microsoft-windows-network-file-system-v4-remote-code-execution-vulnerability": {
+        "id": "['1547704619668623360', '1547704620247437312']",
+        "text": "['CVE-2022-30136: Microsoft Windows Network File System v4 Remote Code Execution Vulnerability']",
+        "time": "Thu Jul 14 22:08:31 2022",
+        "type": "summary"
     }
 }
