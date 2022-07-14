@@ -292,5 +292,11 @@
         "text": "['CVE-2022-30136: Microsoft Windows Network File System v4 Remote Code Execution Vulnerability']",
         "time": "Thu Jul 14 22:08:31 2022",
         "type": "summary"
+    },
+    "https://lwn.net/SubscriberLink/900099/278cbf4e1b2add3d/": {
+        "id": "['1547719828626030596', '1547719829498384386', '1547719830416920576', '1547719831297740801', '1547719832098840579', '1547719832828751872', '1547719833730486272', '1547719834720317443', '1547719835538272257', '1547719836410662918']",
+        "text": "['Kernel support for hardware-based control-flow integrity', 'Kernel support for hardware-based control-flow integrity [LWN subscriber-only content]Welcome to LWN.net The following subscription-only content has been made available to you by an LWN subscriber.', 'Kernel support for hardware-based control-flow integrity [LWN subscriber-only content]Welcome to LWN.net The following subscription-only content has been made available to you by an LWN subscriber.', 'Another way to ensure backward-edge integrity is to use a shadow stack to supplement the regular stack.', 'Another way to ensure backward-edge integrity is to use a shadow stack to supplement the regular stack.', 'The shadow stack stores the return address for each function that is called; whenever a function returns, the return address on the normal stack is compared to the address on the shadow stack.', 'The shadow stack stores the return address for each function that is called; whenever a function returns, the return address on the normal stack is compared to the address on the shadow stack.', 'A better way is to use a special WRSS instruction that lets an application write to its own shadow stack.', \"A better way is to use a special WRSS instruction that lets an application write to its own shadow stack. So, if CRIU was built with the shadow stack enabled, it wouldn't be able to restore tasks without shadow stack and vice versa.\"]",
+        "time": "Thu Jul 14 23:08:59 2022",
+        "type": "summary"
     }
 }

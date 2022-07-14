@@ -47,3 +47,4 @@ https://comsec.ethz.ch/research/microarch/retbleed/
 https://garrit.xyz/ctf
 https://www.technologyreview.com/2022/07/14/1055894/us-military-sofware-linux-kernel-open-source/
 https://www.thezdi.com/blog/2022/7/13/cve-2022-30136-microsoft-windows-network-file-system-v4-remote-code-execution-vulnerability
+https://lwn.net/SubscriberLink/900099/278cbf4e1b2add3d/
