@@ -45,3 +45,4 @@ https://www.b-list.org/weblog/2022/jul/11/pypi/
 https://dodcio.defense.gov/open-source-software-faq/
 https://comsec.ethz.ch/research/microarch/retbleed/
 https://garrit.xyz/ctf
+https://www.technologyreview.com/2022/07/14/1055894/us-military-sofware-linux-kernel-open-source/
