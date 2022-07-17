@@ -304,5 +304,11 @@
         "text": "['Playing with NitroKey 3 -- PC runner using USBIP', 'I\u2019ve been wanting to use my brand new NitroKey 3, but TOTP is not supported yet.', 'I\u2019ve been wanting to use my brand new NitroKey 3, but TOTP is not supported yet. \ud83d\ude00Talking to the simulated key using nitropyAlright, now it\u2019s time to try and talk to the simulated USB key.', \"So:$ git clone https://github.com/Nitrokey/pynitrokey.git ... $ cd pynitrokey $ python3 -m venv venv $ source venv/bin/activate ( venv ) $ make init # This installs a bunch of dependencies ( venv ) $ make build # This builds nitropy tool and puts it in venv/bin, which we're us...\", 'ingAs mentioned in pynitrokey \u2019s Developer\u2019s Guide you also have to patch venv/lib/python3.9/site-packages/fido2/hid/base.py file as shown here .', 'ingAs mentioned in pynitrokey \u2019s Developer\u2019s Guide you also have to patch venv/lib/python3.9/site-packages/fido2/hid/base.py file as shown here . If that fails for you, however, you\u2019ll have to restart USBIP simulation \u2013 that should fix the problem.', \"So:$ git clone https://github.com/Nitrokey/pynitrokey.git ... $ cd pynitrokey $ python3 -m venv venv $ source venv/bin/activate ( venv ) $ make init # This installs a bunch of dependencies ( venv ) $ make build # This builds nitropy tool and puts it in venv/bin, which we're usingAs mentioned in pynitrokey \u2019s Developer\u2019s Guide you also have to patch venv/lib/python3.9/site-packages/fido2/hid/base.py file as shown here .\", 'To do that, execute the following in the terminal window you used to start the simulator:$ make stop sudo usbip detach -p \"00\" usbip: info: Port 0 is now detached!', 'To do that, execute the following in the terminal window you used to start the simulator:$ make stop sudo usbip detach -p \"00\" usbip: info: Port 0 is now detached!']",
         "time": "Fri Jul 15 04:54:44 2022",
         "type": "summary"
+    },
+    "https://nebelwelt.net/files/22FSE.pdf": {
+        "id": "['1548580604651995137', '1548580605192962048']",
+        "text": "['Minerva: Browser API Fuzzing with Dynamic Mod-Ref Analysis']",
+        "time": "Sun Jul 17 08:09:22 2022",
+        "type": "summary"
     }
 }
