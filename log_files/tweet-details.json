@@ -328,5 +328,11 @@
         "text": "['Pulsar \u2013 open-source runtime security for the IoT with eBPF and Rust', 'A highly modular and blazing fast runtime security framework for the IoT, powered by eBPF.', 'A highly modular and blazing fast runtime security framework for the IoT, powered by eBPF. - GitHub - Exein-io/pulsar: A highly modular and blazing fast runtime security framework for the IoT, powered by eBPF.']",
         "time": "Mon Jul 18 14:16:49 2022",
         "type": "summary"
+    },
+    "https://arxiv.org/abs/2207.07413": {
+        "id": "['1549124060382216193', '1549124060986150914', '1549124061556523009', '1549124062164795392']",
+        "text": "['SATAn: Air-Gap Exfiltration Attack via Radio Signals From SATA Cables', 'Accessible arXivDo you navigate arXiv using a screen reader or other assistive technology?', 'Accessible arXivDo you navigate arXiv using a screen reader or other assistive technology? Are you a professor who helps students do so? We want to hear from you. Please consider signing up to share your insights as we work to make arXiv even more open.']",
+        "time": "Mon Jul 18 20:08:52 2022",
+        "type": "summary"
     }
 }

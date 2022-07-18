@@ -53,3 +53,4 @@ https://nebelwelt.net/files/22FSE.pdf
 https://www.microsoft.com/security/blog/2022/07/13/uncovering-a-macos-app-sandbox-escape-vulnerability-a-deep-dive-into-cve-2022-26706/
 https://securephones.io/main.html
 https://github.com/Exein-io/pulsar
+https://arxiv.org/abs/2207.07413
