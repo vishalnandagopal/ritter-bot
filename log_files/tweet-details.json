@@ -322,5 +322,11 @@
         "text": "['Data Security on Mobile Devices: Current State of the Art, Open Problems, and Proposed Solutions', 'Our fact-gathering and analysis allow us to make a number recommendations for improving data security on these devices.', 'Our fact-gathering and analysis allow us to make a number recommendations for improving data security on these devices.', 'Our primary goal in each case is to develop an understanding of the current state of the technological protection measures that protect user data on each platform.', 'Our primary goal in each case is to develop an understanding of the current state of the technological protection measures that protect user data on each platform.', 'Our goal is to provide a single periodically updated guide that serves to detail the public state of data security in modern smartphones.', 'Our goal is to provide a single periodically updated guide that serves to detail the public state of data security in modern smartphones. The primary means to bypass iOS security features is through the exploitation of software vulnerabilities in apps and iOS software.', 'The data available for Keychain syncing includes Safari user data (usernames, passwords, and credit card numbers), Wi-Fi passwords, and HomeKit encryption keys.', 'The data available for Keychain syncing includes Safari user data (usernames, passwords, and credit card numbers), Wi-Fi passwords, and HomeKit encryption keys.']",
         "time": "Mon Jul 18 03:04:21 2022",
         "type": "summary"
+    },
+    "https://github.com/Exein-io/pulsar": {
+        "id": "['1549035464656654336', '1549035465201930241', '1549035465763962881', '1549035466422472704']",
+        "text": "['Pulsar \u2013 open-source runtime security for the IoT with eBPF and Rust', 'A highly modular and blazing fast runtime security framework for the IoT, powered by eBPF.', 'A highly modular and blazing fast runtime security framework for the IoT, powered by eBPF. - GitHub - Exein-io/pulsar: A highly modular and blazing fast runtime security framework for the IoT, powered by eBPF.']",
+        "time": "Mon Jul 18 14:16:49 2022",
+        "type": "summary"
     }
 }

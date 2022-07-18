@@ -52,3 +52,4 @@ https://prezu.ca/post/2022-07-13-nk3-pc-usbip-1/
 https://nebelwelt.net/files/22FSE.pdf
 https://www.microsoft.com/security/blog/2022/07/13/uncovering-a-macos-app-sandbox-escape-vulnerability-a-deep-dive-into-cve-2022-26706/
 https://securephones.io/main.html
+https://github.com/Exein-io/pulsar
