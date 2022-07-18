@@ -50,3 +50,5 @@ https://www.thezdi.com/blog/2022/7/13/cve-2022-30136-microsoft-windows-network-f
 https://lwn.net/SubscriberLink/900099/278cbf4e1b2add3d/
 https://prezu.ca/post/2022-07-13-nk3-pc-usbip-1/
 https://nebelwelt.net/files/22FSE.pdf
+https://www.microsoft.com/security/blog/2022/07/13/uncovering-a-macos-app-sandbox-escape-vulnerability-a-deep-dive-into-cve-2022-26706/
+https://securephones.io/main.html
