@@ -12,7 +12,7 @@
     "time_to_wait_after_a_tweet_in_seconds": 2,
     "run_program_every_x_seconds": 5,
     "time_to_wait_when_not_running_in_seconds": 21600,
-    "ignore_https": false,
+    "ignore_https": true,
     "rss_feeds_to_fetch": {
         "description_from_rss_feed": [],
         "description_from_html": [
