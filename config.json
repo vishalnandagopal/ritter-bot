@@ -16,7 +16,8 @@
     "rss_feeds_to_fetch": {
         "description_from_rss_feed": [],
         "description_from_html": [
-            "https://lobste.rs/t/security.rss"
+            "https://lobste.rs/t/security.rss",
+            "https://lobste.rs/t/privacy.rss"
         ]
     },
     "dont_summarize_these_urls": [
