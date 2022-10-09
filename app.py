@@ -534,7 +534,8 @@ def read_rss_feed(feed_url: str) -> feedparser.util.FeedParserDict:
     else:
         print(f"{feed_url} cannot be accessed.")
     
-    
+#Functions defined in this class are specific to Twitter.
+
 class TwitterUser:
 
     def __init__(self) -> None:
