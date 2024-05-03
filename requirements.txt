@@ -33,7 +33,7 @@ six==1.16.0
 soupsieve==2.3.2.post1
 tinysegmenter==0.3
 tldextract==3.4.0
-tqdm==4.64.1
+tqdm==4.66.3
 tweepy==4.12.1
 types-beautifulsoup4==4.11.6.5
 types-html5lib==1.1.11.11
